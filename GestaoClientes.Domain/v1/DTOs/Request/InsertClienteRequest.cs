@@ -26,5 +26,7 @@ namespace GestaoClientes.Domain.v1.DTOs.Request
         [Required(ErrorMessage = "Por favor informe um {0}")]
         public string Cidade { get; set; }
 
+
+
     }
 }

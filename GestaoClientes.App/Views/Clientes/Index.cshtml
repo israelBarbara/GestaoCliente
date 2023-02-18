@@ -1,0 +1,112 @@
+﻿@model IEnumerable<GestaoClientes.Domain.v1.DTOs.Response.ClientesResponse>
+
+
+
+@{
+    ViewData["Title"] = "";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a class="btn btn-info" asp-action="Create">Novo Cliente</a>
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            @using (Html.BeginForm("Index", "Clientes", FormMethod.Get))
+            {
+                <table>
+                    <tr>
+                        <td>
+                            <span>Procurar por: <b /></span>
+                            @Html.RadioButton("searchBy","Nome",true)
+                            <text>Nome</text>
+                            @Html.RadioButton("searchBy","Cpf",false)
+                            <text>Cpf</text>
+                            @Html.RadioButton("searchBy","Uf",false)
+                            <text>Estado</text>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.TextBox("searchValue",null,new {Class="form-control",placeholder="Digite a chave de procura"})
+                        </td>
+                        <td>
+                            <input type="submit" value="Procurar"class="btn btn-success"/>
+                        </td>
+                    </tr>
+
+
+                </table>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th>
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco)
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

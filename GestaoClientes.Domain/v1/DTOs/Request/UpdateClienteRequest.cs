@@ -11,10 +11,13 @@ namespace GestaoClientes.Domain.v1.DTOs.Request
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Por favor informe um {0}")]
-        public string Nome { get; set; }
+        public string Endereco { get; set; }
 
         [Required(ErrorMessage = "Por favor informe um {0}")]
-        public string Email { get; set; }
+        public string Cidade { get; set; }
+
+        [Required(ErrorMessage = "Por favor informe um {0}")]
+        public string Estado { get; set; }
 
     }
 }

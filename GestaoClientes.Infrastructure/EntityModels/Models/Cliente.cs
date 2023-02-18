@@ -12,7 +12,7 @@ namespace GestaoClientes.Infrastructure
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public DateTime DataNascimento { get; set; }
-        public Sexo Sexo { get; set; }
+        public int Sexo { get; set; }
         public string Endereco { get; set; }
         public string Estado { get; set; }
         public string Cidade { get; set; }
